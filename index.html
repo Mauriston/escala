@@ -204,50 +204,187 @@
 
     <script>
         // Dados de amostra extraídos dos snippets enviados para demonstração inicial
-        const mockCSV = `Início	Término	SVC	Medico	Retens	Título	Dia Inteiro?	Descrição	Localização	Convidados	Enviar convites	Cor ID	Link Anexos	ID do Evento	Status
-01/02/2026	02/02/2026	DIA	1T (RM2-Md) COSTA, 1T (RM2-Md) SANTIAGO	1T (RM2-Md) KILDARE	📅	DIA: 1T (RM2-Md) COSTA, 1T (RM2-Md) SANTIAGO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) COSTA, 1T (RM2-Md) SANTIAGO\n • RETÉM: 1T (RM2-Md) KILDARE"		dc08091998@gmail.com, sergioalencar97@gmail.com	TRUE	4		73g9arb5vd0r9gpsfdj19crh8c@google.com	Sincronizado
-02/02/2026	03/02/2026	DIA	1T (RM2Md-) BARBOSA, 1T (RM2-Md) VIANNA	1T (RM2-Md) CAMELO	📅	DIA: 1T (RM2Md-) BARBOSA, 1T (RM2-Md) VIANNA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2Md-) BARBOSA, 1T (RM2-Md) VIANNA\n • RETÉM: 1T (RM2-Md) CAMELO"		gabrielviannaluna@gmail.com	TRUE	8		r7a61khcl840g8cg6otpmqh4gc@google.com	Sincronizado
-03/02/2026	04/02/2026	DIA	1T (RM2-Md) CAMELO, 1T (RM2-Md) ALBUQUERQUE	1T (RM2-Md) FILHO	📅	DIA: 1T (RM2-Md) CAMELO, 1T (RM2-Md) ALBUQUERQUE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) CAMELO, 1T (RM2-Md) ALBUQUERQUE\n • RETÉM: 1T (RM2-Md) FILHO"		pablocpf@gmail.com, gustavoalbuquerque998@gmail.com	TRUE	8		5cu0dcq827dh9198fd6m40mfa8@google.com	Sincronizado
-04/02/2026	05/02/2026	DIA	1T (RM2-Md) BATISTA, 1T (RM2-Md) BARRETO	1T (RM2-Md) VIANNA	📅	DIA: 1T (RM2-Md) BATISTA, 1T (RM2-Md) BARRETO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) BARRETO\n • RETÉM: 1T (RM2-Md) VIANNA"		augusttobattistta@gmail.com, gustavobarretorr@gmail.com	TRUE	8		paph6f6pdn5rgd9prbr1e4b2t8@google.com	Sincronizado
-05/02/2026	06/02/2026	DIA	1T (RM2-Md) FILHO, 1T (RM2-Md) COSTA	1T (RM2-Md) BATISTA	📅	DIA: 1T (RM2-Md) FILHO, 1T (RM2-Md) COSTA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) COSTA\n • RETÉM: 1T (RM2-Md) BATISTA"		antunesluiseduardo2@gmail.com, dc08091998@gmail.com	TRUE	8		h1ampbn8p7m11pdo1epje7i080@google.com	Sincronizado
-06/02/2026	07/02/2026	DIA	1T (RM2-Md) CAMELO, 1T (RM2-Md) BATISTA	1T (RM2-Md) KILDARE	📅	DIA: 1T (RM2-Md) CAMELO, 1T (RM2-Md) BATISTA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) CAMELO, 1T (RM2-Md) BATISTA\n • RETÉM: 1T (RM2-Md) KILDARE"		pablocpf@gmail.com, augusttobattistta@gmail.com	TRUE	8		5pnjq5mjore08b8om508cgkjv4@google.com	Sincronizado
-07/02/2026	08/02/2026	DIA	1T (RM2-Md) SANTIAGO, 1T (RM2-Md) KILDARE	1T (RM2-Md) FILHO	📅	DIA: 1T (RM2-Md) SANTIAGO, 1T (RM2-Md) KILDARE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) SANTIAGO, 1T (RM2-Md) KILDARE\n • RETÉM: 1T (RM2-Md) FILHO"		sergioalencar97@gmail.com, kil.herminio@gmail.com	TRUE	4		o0i20ik4sjepap979hb4kbiq9k@google.com	Sincronizado
-08/02/2026	09/02/2026	DIA	1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO	1T (RM2-Md) KILDARE	📅	DIA: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) KILDARE"		jgbmedufpe@gmail.com, pablocpf@gmail.com	TRUE	4		t4cn6ul8oe1cn0a222oo8039m8@google.com	Sincronizado
-09/02/2026	10/02/2026	DIA	1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO	1T (RM2-Md) BARRETO	📅	DIA: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) BARRETO"		gabrielviannaluna@gmail.com, pablocpf@gmail.com	TRUE	8		57bung7335ao17un9500vgn89s@google.com	Sincronizado
-10/02/2026	11/02/2026	DIA	1T (RM2Md-) ALBUQUERQUE, 1T (RM2-Md) CAMELO	1T (RM2-Md) BARRETO	📅	DIA: 1T (RM2Md-) ALBUQUERQUE, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2Md-) ALBUQUERQUE, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) BARRETO"		pablocpf@gmail.com	TRUE	8		74tea8pogepuf45dnltgo6vtmc@google.com	Sincronizado
-11/02/2026	12/02/2026	DIA	1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA	1T (RM2-Md) VIANNA	📅	DIA: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA\n • RETÉM: 1T (RM2-Md) VIANNA"		gustavobarretorr@gmail.com, dc08091998@gmail.com	TRUE	8		fadoiq30dbcoqa4i01jajii04g@google.com	Sincronizado
-12/02/2026	13/02/2026	DIA	1T (RM2-Md) FILHO, 1T (RM2Md-) KILDARE	1T (RM2-Md) BARBOSA	📅	DIA: 1T (RM2-Md) FILHO, 1T (RM2Md-) KILDARE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2Md-) KILDARE\n • RETÉM: 1T (RM2-Md) BARBOSA"		antunesluiseduardo2@gmail.com	TRUE	8		k29p7hsu01kb9sk8179fs4uv44@google.com	Sincronizado
-13/02/2026	14/02/2026	DIA	1T (RM2-Md) CAMELO, 1T (RM2-Md) BARBOSA	1T (RM2-Md) SANTIAGO	📅	DIA: 1T (RM2-Md) CAMELO, 1T (RM2-Md) BARBOSA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) CAMELO, 1T (RM2-Md) BARBOSA\n • RETÉM: 1T (RM2-Md) SANTIAGO"		pablocpf@gmail.com, lrbarbosasousa@gmail.com	TRUE	8		1jj66en3em4ghou5a0m31oq1do@google.com	Sincronizado
-14/02/2026	15/02/2026	DIA	1T (RM2-Md) BARBOSA, 1T (RM2-Md) SANTIAGO	1T (RM2-Md) GUIMARÃES	📅	DIA: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) SANTIAGO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) SANTIAGO\n • RETÉM: 1T (RM2-Md) GUIMARÃES"		lrbarbosasousa@gmail.com, sergioalencar97@gmail.com	TRUE	4		7r10oeb8q0h90a53ftbpgcjens@google.com	Sincronizado
-15/02/2026	16/02/2026	DIA	1T (RM2-Md) BARBOSA, 1T (RM2-Md) ALBUQUERQUE	1T (RM2-Md) CAMELO	📅	DIA: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) ALBUQUERQUE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) ALBUQUERQUE\n • RETÉM: 1T (RM2-Md) CAMELO"		lrbarbosasousa@gmail.com, gustavoalbuquerque998@gmail.com	TRUE	4		u708rm4iaih7o556jtivnod3eg@google.com	Sincronizado
-16/02/2026	17/02/2026	DIA	IT (RM2-Md) BARRETO, 1T (RM2-Md) VIANNA	1T (RM2Md-) ALBUQUERQUE	📅	DIA: IT (RM2-Md) BARRETO, 1T (RM2-Md) VIANNA	TRUE	"📅 SPA DIA\n • SVÇ: IT (RM2-Md) BARRETO, 1T (RM2-Md) VIANNA\n • RETÉM: 1T (RM2Md-) ALBUQUERQUE"		gabrielviannaluna@gmail.com	TRUE	3		l85e2jm478cu58rpjer5i8stfk@google.com	Sincronizado
-17/02/2026	18/02/2026	DIA	1T (RM2-Md) COSTA, 1T (RM2-Md) CAMELO	1T (RM2-Md) ALBUQUERQUE	📅	DIA: 1T (RM2-Md) COSTA, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) COSTA, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) ALBUQUERQUE"		dc08091998@gmail.com, pablocpf@gmail.com	TRUE	3		1vsnv177n896if8tavn9i6jefg@google.com	Sincronizado
-18/02/2026	19/02/2026	DIA	1T (RM2-Md) FILHO, 1T (RM2-Md) BATISTA	1T (RM2-Md) COSTA	📅	DIA: 1T (RM2-Md) FILHO, 1T (RM2-Md) BATISTA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) BATISTA\n • RETÉM: 1T (RM2-Md) COSTA"		antunesluiseduardo2@gmail.com, augusttobattistta@gmail.com	TRUE	3		re78vqc7gimit2g341c77r2s8o@google.com	Sincronizado
-19/02/2026	20/02/2026	DIA	1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE	1T (RM2-Md) BATISTA	📅	DIA: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE\n • RETÉM: 1T (RM2-Md) BATISTA"		antunesluiseduardo2@gmail.com, kil.herminio@gmail.com	TRUE	8		gombgmf666kt3amfte953un45k@google.com	Sincronizado
-20/02/2026	21/02/2026	DIA	1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO	1T (RM2-Md) FILHO	📅	DIA: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) FILHO"		jgbmedufpe@gmail.com, pablocpf@gmail.com	TRUE	8		8eb1eb7bal08hogns7cmt01fbk@google.com	Sincronizado
-21/02/2026	22/02/2026	DIA	1T (RM2-Md) VIANNA, 1T (RM2-Md) ALBUQUERQUE	1T (RM2-Md) COSTA	📅	DIA: 1T (RM2-Md) VIANNA, 1T (RM2-Md) ALBUQUERQUE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) ALBUQUERQUE\n • RETÉM: 1T (RM2-Md) COSTA"		gabrielviannaluna@gmail.com, gustavoalbuquerque998@gmail.com	TRUE	4		586gammgni74klsvma9al3e660@google.com	Sincronizado
-22/02/2026	23/02/2026	DIA	1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) FILHO	1T (RM2-Md) BATISTA	📅	DIA: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) FILHO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) FILHO\n • RETÉM: 1T (RM2-Md) BATISTA"		jgbmedufpe@gmail.com, antunesluiseduardo2@gmail.com	TRUE	4		0jildv8pab2br6r1egig47bdbk@google.com	Sincronizado
-23/02/2026	24/02/2026	DIA	1T (RM2-Md) BARBOSA, 1T (RM2-Md) VIANNA	1T (RM2-Md) KILDARE	📅	DIA: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) VIANNA	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) BARBOSA, 1T (RM2-Md) VIANNA\n • RETÉM: 1T (RM2-Md) KILDARE"		lrbarbosasousa@gmail.com, gabrielviannaluna@gmail.com	TRUE	8		tn8171pcv5v7md2t2o3qhc5d1g@google.com	Sincronizado
-24/02/2026	25/02/2026	DIA	1T (RM2-Md) KILDARE, 1T (RM2-Md) CAMELO	1T (RM2-Md) BARRETO	📅	DIA: 1T (RM2-Md) KILDARE, 1T (RM2-Md) CAMELO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) KILDARE, 1T (RM2-Md) CAMELO\n • RETÉM: 1T (RM2-Md) BARRETO"		kil.herminio@gmail.com, pablocpf@gmail.com	TRUE	8		7ge3lct3s74jsa8fs73ej31uac@google.com	Sincronizado
-25/02/2026	26/02/2026	DIA	1T (RM2-Md) COSTA, 1T (RM2-Md) BARRETO	1T (RM2-Md) CAMELO	📅	DIA: 1T (RM2-Md) COSTA, 1T (RM2-Md) BARRETO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) COSTA, 1T (RM2-Md) BARRETO\n • RETÉM: 1T (RM2-Md) CAMELO"		dc08091998@gmail.com, gustavobarretorr@gmail.com	TRUE	8		c55jantcdnb3g344c36u4kmqnk@google.com	Sincronizado
-26/02/2026	27/02/2026	DIA	1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE	1T (RM2-Md) SANTIAGO	📅	DIA: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE\n • RETÉM: 1T (RM2-Md) SANTIAGO"		antunesluiseduardo2@gmail.com, kil.herminio@gmail.com	TRUE	8		25arm745c3iatead836q4up570@google.com	Sincronizado
-27/02/2026	28/02/2026	DIA	1T (RM2Md-) CAMELO, 1T (RM2-Md) KILDARE	1T (RM2-Md) GUIMARÃES	📅	DIA: 1T (RM2Md-) CAMELO, 1T (RM2-Md) KILDARE	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2Md-) CAMELO, 1T (RM2-Md) KILDARE\n • RETÉM: 1T (RM2-Md) GUIMARÃES"		kil.herminio@gmail.com	TRUE	8		b81vv0e61dd3h7fq1tgu7fkq8s@google.com	Sincronizado
-28/02/2026	01/03/2026	DIA	1T (RM2-Md) SANTIAGO, 1T (RM2-Md) BARRETO	1T (RM2-Md) GUIMARÃES	📅	DIA: 1T (RM2-Md) SANTIAGO, 1T (RM2-Md) BARRETO	TRUE	"📅 SPA DIA\n • SVÇ: 1T (RM2-Md) SANTIAGO, 1T (RM2-Md) BARRETO\n • RETÉM: 1T (RM2-Md) GUIMARÃES"		sergioalencar97@gmail.com, gustavobarretorr@gmail.com	TRUE	4		ust6msa0tt2584fl0vuh3mabl0@google.com	Sincronizado
-01/02/2026	02/02/2026	NOITE	1T (RM2-Md) SANTIAGO	CT (MD) SEIXAS	📅	NOITE: 1T (RM2-Md) SANTIAGO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) SANTIAGO\n • RETÉM: CT (MD) SEIXAS"		sergioalencar97@gmail.com	TRUE	4		hsf664d1o8g1l6su3m42i23pnk@google.com	Sincronizado
-02/02/2026	03/02/2026	NOITE	1T (RM2-Md) RAYOL	CT (RM2-Md) JÚLIO CÉSAR	📅	NOITE: 1T (RM2-Md) RAYOL	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) RAYOL\n • RETÉM: CT (RM2-Md) JÚLIO CÉSAR"		melorayol@gmail.com	TRUE	8		a506chnqlf4sqk9g4t4qitp6s0@google.com	Sincronizado
-03/02/2026	04/02/2026	NOITE	1T (RM2-Md) BARRETO	1T (Md) VALERIA	📅	NOITE: 1T (RM2-Md) BARRETO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) BARRETO\n • RETÉM: 1T (Md) VALERIA"		gustavobarretorr@gmail.com	TRUE	8		22quliup19bf4clbrcmqvajkkk@google.com	Sincronizado
-04/02/2026	05/02/2026	NOITE	1T (RM2-Md) BATISTA	CT (Md) SEIXAS	📅	NOITE: 1T (RM2-Md) BATISTA	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) BATISTA\n • RETÉM: CT (Md) SEIXAS"		augusttobattistta@gmail.com	TRUE	8		lk071m8h29ei07rbtsc2edo05s@google.com	Sincronizado
-05/02/2026	06/02/2026	NOITE	1T (RM2-Md) FILHO	CT (Md) MAURISTON	📅	NOITE: 1T (RM2-Md) FILHO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) FILHO\n • RETÉM: CT (Md) MAURISTON"		antunesluiseduardo2@gmail.com	TRUE	8		1rhnbf67u1mgamfr8bdi8m2qms@google.com	Sincronizado
-06/02/2026	07/02/2026	NOITE	1T (RM2-Md) SANTIAGO	CT (Md) LUZ	📅	NOITE: 1T (RM2-Md) SANTIAGO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) SANTIAGO\n • RETÉM: CT (Md) LUZ"		sergioalencar97@gmail.com	TRUE	8		hobbpbnp6jrc21q1vmmrpa1888@google.com	Sincronizado
-07/02/2026	08/02/2026	NOITE	1T (RM2-Md) KILDARE	CT (RM2-Md) JÚLIO CÉSAR	📅	NOITE: 1T (RM2-Md) KILDARE	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) KILDARE\n • RETÉM: CT (RM2-Md) JÚLIO CÉSAR"		kil.herminio@gmail.com	TRUE	4		dfdoon23sn8ruaa28mmoumpb5c@google.com	Sincronizado
-08/02/2026	09/02/2026	NOITE	1T (RM2-Md) BARRETO	CT (MD) SEIXAS	📅	NOITE: 1T (RM2-Md) BARRETO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) BARRETO\n • RETÉM: CT (MD) SEIXAS"		gustavobarretorr@gmail.com	TRUE	4		1v3f72di296uehhj052frqj4vg@google.com	Sincronizado
-09/02/2026	10/02/2026	NOITE	1T (RM2-Md) FILHO	CT (RM2-Md) JÚLIO CÉSAR	📅	NOITE: 1T (RM2-Md) FILHO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) FILHO\n • RETÉM: CT (RM2-Md) JÚLIO CÉSAR"		antunesluiseduardo2@gmail.com	TRUE	8		pcvvdkh80quu3n50cjttmh1f1k@google.com	Sincronizado
-10/02/2026	11/02/2026	NOITE	1T (RM2-Md) BARRETO	CT (Md) LUZ	📅	NOITE: 1T (RM2-Md) BARRETO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) BARRETO\n • RETÉM: CT (Md) LUZ"		gustavobarretorr@gmail.com	TRUE	8		rlnfedvmud5msb9up73lj8a9ak@google.com	Sincronizado
-11/02/2026	12/02/2026	NOITE	1T (RM2-Md) BATISTA	CT (Md) FRANÇA	📅	NOITE: 1T (RM2-Md) BATISTA	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) BATISTA\n • RETÉM: CT (Md) FRANÇA"		augusttobattistta@gmail.com	TRUE	8		qd1p5o293hui6d0i83i89sfuko@google.com	Sincronizado
-12/02/2026	13/02/2026	NOITE	1T (RM2-Md) FILHO	17 (Md) MÔNICA VIRGÍNIA	📅	NOITE: 1T (RM2-Md) FILHO	TRUE	"📅 SPA NOITE\n • SVÇ: 1T (RM2-Md) FILHO\n • RETÉM: 17 (Md) MÔNICA VIRGÍNIA"		antunesluiseduardo2@gmail.com	TRUE	8		53mes488k5a6jjgjmc3mj6cksc@google.com	Sincronizado
-31/12/2025	01/01/2026	NOITE	2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE	2T (RM2-Md) DIOGENES	📅  NOITE: 2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE	TRUE	"📅 SPA NOITE
- • SVÇ: 2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE
-31/12/2025	01/01/2026	NOITE	2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE	2T (RM2-Md) DIOGENES	📅  NOITE: 2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE	TRUE	"📅 SPA NOITE\n • SVÇ: 2T (RM2-Md) MATTOS, 2T (RM2-Md) ALBUQUERQUE\n • RETÉM: 2T (RM2-Md) DIOGENES"			TRUE	3		j8fgmfogqirr3j3vvh8p7slick@google.com	Sincronizado`;
+        const mockCSV = `Início,Término,SVC,Medico,Retens,Título,Dia Inteiro?,Descrição,Localização,Convidados,Enviar convites,Cor ID,Link Anexos,ID do Evento,Status
+01/04/2026,02/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",1T (RM2-Md) DIÓGENES,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
+ • RETÉM: 1T (RM2-Md) DIÓGENES",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,kpuqkspf74hqbsuas6es7jljgo@google.com,Sincronizado
+02/04/2026,03/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) BATISTA,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
+ • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
+ • RETÉM: 1T (RM2-Md) BATISTA",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,jq1fuek83l8ko1h4151fj29dl4@google.com,Sincronizado
+03/04/2026,04/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",1T (RM2-Md) ALBUQUERQUE,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
+ • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,3,,70lmk2ca742ivj0q5tdu2o0k28@google.com,Sincronizado
+04/04/2026,05/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO
+ • RETÉM: GM (RM2-Md) CASSUNDÉ",,"marciogaluppojr@gmail.com, macedovictor374@gmail.com",TRUE,3,,q99ri74uuulirgmgt8of01ldgk@google.com,Sincronizado
+05/04/2026,06/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) PAES,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) PAES",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,3,,3b4s6cs3542lfba9baeue8hhcg@google.com,Sincronizado
+06/04/2026,07/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",1T (RM2-Md) VIANNA,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
+ • RETÉM: 1T (RM2-Md) VIANNA",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,k865vnasl4crbch2pfc2d2iuh0@google.com,Sincronizado
+07/04/2026,08/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",1T (RM2-Md) BARRETO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
+ • RETÉM: 1T (RM2-Md) BARRETO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,k1es0l69s1sn5ioenp81mmcnbo@google.com,Sincronizado
+08/04/2026,09/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
+ • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,583fsmkchrnk9ihuhgpm5onkt0@google.com,Sincronizado
+09/04/2026,10/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) BATISTA,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
+ • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
+ • RETÉM: 1T (RM2-Md) BATISTA",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,m6sqssatap41gp8n0j8va065os@google.com,Sincronizado
+10/04/2026,11/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
+ • RETÉM: GM (RM2-Md) GALUPPO",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,eii1k0s8rs358hoj0hqqn9e4p0@google.com,Sincronizado
+11/04/2026,12/04/2026,DIA,"GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO",GM (RM2-Md) ARAÚJO,"📅  DIA: GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO
+ • RETÉM: GM (RM2-Md) ARAÚJO",,"alvaroartur79@gmail.com, luishrapinheiro@gmail.com",TRUE,4,,75g1870k3rilek97hps0o5qvs0@google.com,Sincronizado
+12/04/2026,13/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,o1m8vp4j4c40iapaolhn6ejdhs@google.com,Sincronizado
+13/04/2026,14/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",1T (RM2-Md) VIANNA,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
+ • RETÉM: 1T (RM2-Md) VIANNA",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,p82lmm6jumgtbt36cjgu086mb4@google.com,Sincronizado
+14/04/2026,15/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",1T (RM2-Md) BARRETO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
+ • RETÉM: 1T (RM2-Md) BARRETO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,6kehfgmpohcjb1hqmmoomla20k@google.com,Sincronizado
+15/04/2026,16/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) PAES,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
+ • RETÉM: GM (RM2-Md) PAES",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,vkje5spo1l111rghb7hq2qbopg@google.com,Sincronizado
+16/04/2026,17/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
+ • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
+ • RETÉM: 1T (RM2-Md) GUIMARÃES",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,5fbghp34b49800abjhccrs8s00@google.com,Sincronizado
+17/04/2026,18/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
+ • RETÉM: GM (RM2-Md) GALUPPO",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,m5ucafddcnsfvn48l6s6jpjj9k@google.com,Sincronizado
+18/04/2026,19/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA",GM (RM2-Md) ARAÚJO,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) ARAÚJO",,"danielmcassunde@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,al1r5sherdqlm40bsfafe1g7fc@google.com,Sincronizado
+19/04/2026,20/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,f8bmblj6aeapcmki6ap1k8qna8@google.com,Sincronizado
+20/04/2026,21/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",GM (RM2-Md) TORRES,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
+ • RETÉM: GM (RM2-Md) TORRES",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,adg91hukl4podpiln0f90m00ng@google.com,Sincronizado
+21/04/2026,22/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
+ • RETÉM: GM (RM2-Md) GALUPPO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,4,,23f25bh5ljj73h68gd1hq7opmg@google.com,Sincronizado
+22/04/2026,23/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
+ • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,rirg4jgipelme2hjd39clf8pr8@google.com,Sincronizado
+23/04/2026,24/04/2026,DIA,"GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES
+ • RETÉM: 1T (RM2-Md) GUIMARÃES",,"thiago.leaooliveira@ufpe.br, alvaroartur79@gmail.com",TRUE,8,,5mkj6a8k4mub4322lntk060824@google.com,Sincronizado
+24/04/2026,25/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
+ • RETÉM: GM (RM2-Md) CASSUNDÉ",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,cltopvkt35cp5mr64tm6o6bsq4@google.com,Sincronizado
+25/04/2026,26/04/2026,DIA,"GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO",GM (RM2-Md) BEZERRA,"📅  DIA: GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO
+ • RETÉM: GM (RM2-Md) BEZERRA",,"alvaroartur79@gmail.com, matheush.alvesh@gmail.com",TRUE,4,,pn1u6b2kj80oe2g93qd03dtmtc@google.com,Sincronizado
+26/04/2026,27/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,2b9p6o6795van1ir136tc6f0co@google.com,Sincronizado
+27/04/2026,28/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",GM (RM2-Md) TORRES,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
+ • RETÉM: GM (RM2-Md) TORRES",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,t90eu1ei0hjo4n03pp9qang0bc@google.com,Sincronizado
+28/04/2026,29/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
+ • RETÉM: GM (RM2-Md) CASSUNDÉ",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,mj6on9kdh8qjltgc7t7vimonls@google.com,Sincronizado
+29/04/2026,30/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
+ • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,vc9r0g1a1vuig10dvonqkl3634@google.com,Sincronizado
+30/04/2026,01/05/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
+ • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES
+ • RETÉM: 1T (RM2-Md) GUIMARÃES",,"mmgomes61@gmail.com, alvaroartur79@gmail.com",TRUE,8,,csj1acrvjbe3cafndd6jt9bcv0@google.com,Sincronizado
+01/04/2026,02/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) KILDARE,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
+ • RETÉM: 1T (RM2-Md) KILDARE",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,uburm4ju62dhm0ei7r77f15l7o@google.com,Sincronizado
+02/04/2026,03/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES",1T (RM2-Md) KILDARE,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES
+ • RETÉM: 1T (RM2-Md) KILDARE",,"augusttobattistta@gmail.com, drlevilucenad@gmail.com",TRUE,8,,cq80ikc5tllaj9va4r5aflg34s@google.com,Sincronizado
+03/04/2026,04/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) PAES",1T (RM2-Md) FILHO,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) PAES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) PAES
+ • RETÉM: 1T (RM2-Md) FILHO",,"kil.herminio@gmail.com, joao.blp@hotmail.com",TRUE,3,,7m0n1in5ed6rdi2mtcas4ahubc@google.com,Sincronizado
+04/04/2026,05/04/2026,NOITE,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MACEDO,"📅  NOITE: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA NOITE
+ • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
+ • RETÉM: GM (RM2-Md) MACEDO",,paulovictorsbezerra@gmail.com,TRUE,3,,n4eqrtilajmm73ovniehlau88c@google.com,Sincronizado
+05/04/2026,06/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
+ • RETÉM: GM (RM2-Md) MIKHAEL",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,3,,0f88vgpd99tqbo8ra3ku69hvas@google.com,Sincronizado
+06/04/2026,07/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
+ • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,s8pcgo73n1qbnon3gcet1tvepk@google.com,Sincronizado
+07/04/2026,08/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) FILHO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
+ • RETÉM: 1T (RM2-Md) FILHO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,t8pust39q9v8rofeockjujlhqc@google.com,Sincronizado
+08/04/2026,09/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) DIÓGENES,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
+ • RETÉM: 1T (RM2-Md) DIÓGENES",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,ddnl8a0b9vo5rcg00ic96ueb9c@google.com,Sincronizado
+09/04/2026,10/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
+ • RETÉM: GM (RM2-Md) MIKHAEL",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,0kik3g1ds0pq7jpvcsb2ligm20@google.com,Sincronizado
+10/04/2026,11/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO
+ • RETÉM: GM (RM2-Md) MIKHAEL",,"kil.herminio@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,btjv3ccc7t7trrdhdjdftfd0g4@google.com,Sincronizado
+11/04/2026,12/04/2026,NOITE,"1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO",GM (RM2-Md) MACEDO,"📅  NOITE: 1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO
+ • RETÉM: GM (RM2-Md) MACEDO",,"antunesluiseduardo2@gmail.com, marciogaluppojr@gmail.com",TRUE,4,,tnie2fge229njj6r16em13ubvk@google.com,Sincronizado
+12/04/2026,13/04/2026,NOITE,"1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA
+ • RETÉM: GM (RM2-Md) LEÃO",,"jgbmedufpe@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,ri3an9phe910kc3e6i5vp66k3k@google.com,Sincronizado
+13/04/2026,14/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
+ • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,ui1jlh72u2p2ekbc3gac2c8c9o@google.com,Sincronizado
+14/04/2026,15/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) CAMELO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
+ • RETÉM: 1T (RM2-Md) CAMELO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,qvc2tlkjlgo7rh8389ddm5igac@google.com,Sincronizado
+15/04/2026,16/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) DIÓGENES,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
+ • RETÉM: 1T (RM2-Md) DIÓGENES",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,k4th07i442il8vmneiu8so7t0k@google.com,Sincronizado
+16/04/2026,17/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) ARAÚJO,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
+ • RETÉM: GM (RM2-Md) ARAÚJO",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,3188j2nu6fbku6evq9kpjg0a7g@google.com,Sincronizado
+17/04/2026,18/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",GM (RM2-Md) MACEDO,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
+ • RETÉM: GM (RM2-Md) MACEDO",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,5o6thbn702llub1vkfrmorjib0@google.com,Sincronizado
+18/04/2026,19/04/2026,NOITE,"1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) TORRES,"📅  NOITE: 1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL
+ • RETÉM: GM (RM2-Md) TORRES",,"antunesluiseduardo2@gmail.com, mikhaellmorais@gmail.com",TRUE,4,,cdao20ifv1s2tihu2db0ee1pok@google.com,Sincronizado
+19/04/2026,20/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
+ • RETÉM: GM (RM2-Md) LEÃO",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,dfe7i4u1hnnibs4m9vidng86oo@google.com,Sincronizado
+20/04/2026,21/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
+ • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,ec6mve7sd6fpmo1a12741b9fho@google.com,Sincronizado
+21/04/2026,22/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) CAMELO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
+ • RETÉM: 1T (RM2-Md) CAMELO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,4,,d07dr9acu5u0c4cmfgkk380mlk@google.com,Sincronizado
+22/04/2026,23/04/2026,NOITE,"1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO
+ • RETÉM: 1T (RM2-Md) BARBOSA",,"gustavoalbuquerque998@gmail.com, pablocpf@gmail.com",TRUE,8,,crfpd7in7at6umqr254ehkpjbc@google.com,Sincronizado
+23/04/2026,24/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",1T (RM2-Md) ALBUQUERQUE,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
+ • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,qs24lg221sk4p0v6u8oiv9oibs@google.com,Sincronizado
+24/04/2026,25/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ",GM (RM2-Md) BEZERRA,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ
+ • RETÉM: GM (RM2-Md) BEZERRA",,"kil.herminio@gmail.com, danielmcassunde@gmail.com",TRUE,8,,h9i696gvc8ka89tbl7df6nn128@google.com,Sincronizado
+25/04/2026,26/04/2026,NOITE,"GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO",GM (RM2-Md) BEZERRA,"📅  NOITE: GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO",TRUE,"📅 SPA NOITE
+ • SVÇ: GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO
+ • RETÉM: GM (RM2-Md) BEZERRA",,"luishrapinheiro@gmail.com, mmgomes61@gmail.com",TRUE,4,,stoivl7ravtdkmenj6e0r90os8@google.com,Sincronizado
+26/04/2026,27/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
+ • RETÉM: GM (RM2-Md) LEÃO",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,df37jeehe0r47ukkk6urmdqb8o@google.com,Sincronizado
+27/04/2026,28/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
+ • RETÉM: 1T (RM2-Md) BARBOSA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,h9qjno8vukq05j5ddgehcg36b8@google.com,Sincronizado
+28/04/2026,29/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) ALBUQUERQUE,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
+ • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,j00qdl2ei5chp4nilrna9vbqj0@google.com,Sincronizado
+29/04/2026,30/04/2026,NOITE,"1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO
+ • RETÉM: 1T (RM2-Md) BARBOSA",,"gustavoalbuquerque998@gmail.com, pablocpf@gmail.com",TRUE,8,,0smqfsrmtv6docid9iu0qj8gig@google.com,Sincronizado
+30/04/2026,01/05/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) PAES,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
+ • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
+ • RETÉM: GM (RM2-Md) PAES",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,ltn9vonmjjdpohuc0ueham2ae4@google.com,Sincronizado`;
 
         // Configuração Padrão do Chart.js
         Chart.defaults.font.family = "'Carlito', sans-serif";

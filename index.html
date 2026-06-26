@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Métricas SPA/HNRe - Abril 2026</title>
+    <title>Métricas SPA/HNRe - Julho 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -18,7 +18,8 @@
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- NOTA: PapaParse foi removido pois não usamos mais CSV -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -37,7 +38,6 @@
         .glass-card:hover {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
         }
-        /* Scrollbar customizada para a tabela */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -56,15 +56,11 @@
 
     <div class="max-w-7xl mx-auto space-y-8">
         
-        <!-- Cabeçalho (Sem Upload) -->
+        <!-- Cabeçalho -->
         <header class="glass-card relative p-6 md:p-8 flex flex-col md:flex-row items-center justify-start border-t-4 border-t-blue-600 animate-fade-in gap-8 md:gap-12 lg:gap-20">
-            
-            <!-- Imagem à esquerda (~35% e reduzida em 15%) -->
             <div class="flex items-center justify-center md:justify-start w-full md:w-[35%] z-10">
                 <img src="https://i.imgur.com/cpX4sFW.png" alt="Logo Hospital Naval de Recife" class="w-[70%] md:w-[90%] max-w-[380px] h-auto object-contain drop-shadow-sm">
             </div>
-            
-            <!-- Texto centralizado nas próprias linhas (~35% e reduzido em 15%) -->
             <div class="flex items-center justify-center w-full md:w-[35%] z-10">
                 <h1 class="font-montserrat text-xl md:text-2xl lg:text-3xl font-black text-slate-800 tracking-widest text-center leading-[2.5] uppercase whitespace-nowrap">
                     ESCALA DE SERVIÇO<br>DO SPA
@@ -104,7 +100,6 @@
 
         <!-- Gráficos Principais -->
         <div class="w-full animate-fade-in" style="animation-delay: 0.2s;">
-            <!-- Carga Horária Semanal -->
             <div class="glass-card p-6 md:p-8">
                 <h2 class="font-montserrat text-lg font-bold text-slate-800 mb-6 flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
@@ -126,7 +121,6 @@
 
         <!-- Análises Adicionais -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-fade-in" style="animation-delay: 0.3s;">
-            <!-- Top 5 Plantões à Noite -->
             <div class="glass-card p-6 md:p-8 flex flex-col">
                 <h2 class="font-montserrat text-lg font-bold text-slate-800 mb-6 flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-slate-800 text-slate-100 flex items-center justify-center">
@@ -139,7 +133,6 @@
                 </div>
             </div>
 
-            <!-- Plantões Finais de Semana -->
             <div class="glass-card p-6 md:p-8">
                 <h2 class="font-montserrat text-lg font-bold text-slate-800 mb-6 flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center">
@@ -183,193 +176,47 @@
         </div>
         
         <footer class="text-center text-slate-400 text-sm font-medium pb-8 mt-8">
-            <p>Gerado com base nos dados do período de Abril de 2026 analisado.</p>
+            <p>Gerado com base nos dados JSON processados.</p>
         </footer>
     </div>
 
     <script>
-        // Dados estáticos de Abril de 2026 fixados no código (Ícone de Upload removido)
-        const mockCSV = `Início,Término,SVC,Medico,Retens,Título,Dia Inteiro?,Descrição,Localização,Convidados,Enviar convites,Cor ID,Link Anexos,ID do Evento,Status
-01/04/2026,02/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",1T (RM2-Md) DIÓGENES,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
- • RETÉM: 1T (RM2-Md) DIÓGENES",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,kpuqkspf74hqbsuas6es7jljgo@google.com,Sincronizado
-02/04/2026,03/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) BATISTA,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
- • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
- • RETÉM: 1T (RM2-Md) BATISTA",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,jq1fuek83l8ko1h4151fj29dl4@google.com,Sincronizado
-03/04/2026,04/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",1T (RM2-Md) ALBUQUERQUE,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
- • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,3,,70lmk2ca742ivj0q5tdu2o0k28@google.com,Sincronizado
-04/04/2026,05/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MACEDO
- • RETÉM: GM (RM2-Md) CASSUNDÉ",,"marciogaluppojr@gmail.com, macedovictor374@gmail.com",TRUE,3,,q99ri74uuulirgmgt8of01ldgk@google.com,Sincronizado
-05/04/2026,06/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) PAES,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) PAES",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,3,,3b4s6cs3542lfba9baeue8hhcg@google.com,Sincronizado
-06/04/2026,07/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",1T (RM2-Md) VIANNA,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
- • RETÉM: 1T (RM2-Md) VIANNA",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,k865vnasl4crbch2pfc2d2iuh0@google.com,Sincronizado
-07/04/2026,08/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",1T (RM2-Md) BARRETO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
- • RETÉM: 1T (RM2-Md) BARRETO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,k1es0l69s1sn5ioenp81mmcnbo@google.com,Sincronizado
-08/04/2026,09/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
- • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,583fsmkchrnk9ihuhgpm5onkt0@google.com,Sincronizado
-09/04/2026,10/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) BATISTA,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
- • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
- • RETÉM: 1T (RM2-Md) BATISTA",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,m6sqssatap41gp8n0j8va065os@google.com,Sincronizado
-10/04/2026,11/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
- • RETÉM: GM (RM2-Md) GALUPPO",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,eii1k0s8rs358hoj0hqqn9e4p0@google.com,Sincronizado
-11/04/2026,12/04/2026,DIA,"GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO",GM (RM2-Md) ARAÚJO,"📅  DIA: GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) TORRES, GM (RM2-Md) RUFINO
- • RETÉM: GM (RM2-Md) ARAÚJO",,"alvaroartur79@gmail.com, luishrapinheiro@gmail.com",TRUE,4,,75g1870k3rilek97hps0o5qvs0@google.com,Sincronizado
-12/04/2026,13/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,o1m8vp4j4c40iapaolhn6ejdhs@google.com,Sincronizado
-13/04/2026,14/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",1T (RM2-Md) VIANNA,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
- • RETÉM: 1T (RM2-Md) VIANNA",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,p82lmm6jumgtbt36cjgu086mb4@google.com,Sincronizado
-14/04/2026,15/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",1T (RM2-Md) BARRETO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
- • RETÉM: 1T (RM2-Md) BARRETO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,6kehfgmpohcjb1hqmmoomla20k@google.com,Sincronizado
-15/04/2026,16/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) PAES,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
- • RETÉM: GM (RM2-Md) PAES",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,vkje5spo1l111rghb7hq2qbopg@google.com,Sincronizado
-16/04/2026,17/04/2026,DIA,"1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
- • SVÇ: 1T (RM2-Md) ALBUQUERQUE, GM (RM2-Md) TORRES
- • RETÉM: 1T (RM2-Md) GUIMARÃES",,"gustavoalbuquerque998@gmail.com, alvaroartur79@gmail.com",TRUE,8,,5fbghp34b49800abjhccrs8s00@google.com,Sincronizado
-17/04/2026,18/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
- • RETÉM: GM (RM2-Md) GALUPPO",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,m5ucafddcnsfvn48l6s6jpjj9k@google.com,Sincronizado
-18/04/2026,19/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA",GM (RM2-Md) ARAÚJO,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) ARAÚJO",,"danielmcassunde@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,al1r5sherdqlm40bsfafe1g7fc@google.com,Sincronizado
-19/04/2026,20/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,f8bmblj6aeapcmki6ap1k8qna8@google.com,Sincronizado
-20/04/2026,21/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",GM (RM2-Md) TORRES,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
- • RETÉM: GM (RM2-Md) TORRES",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,adg91hukl4podpiln0f90m00ng@google.com,Sincronizado
-21/04/2026,22/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",GM (RM2-Md) GALUPPO,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
- • RETÉM: GM (RM2-Md) GALUPPO",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,4,,23f25bh5ljj73h68gd1hq7opmg@google.com,Sincronizado
-22/04/2026,23/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
- • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,rirg4jgipelme2hjd39clf8pr8@google.com,Sincronizado
-23/04/2026,24/04/2026,DIA,"GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) LEÃO, GM (RM2-Md) TORRES
- • RETÉM: 1T (RM2-Md) GUIMARÃES",,"thiago.leaooliveira@ufpe.br, alvaroartur79@gmail.com",TRUE,8,,5mkj6a8k4mub4322lntk060824@google.com,Sincronizado
-24/04/2026,25/04/2026,DIA,"GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) PAES, GM (RM2-Md) RUFINO
- • RETÉM: GM (RM2-Md) CASSUNDÉ",,"joao.blp@hotmail.com, luishrapinheiro@gmail.com",TRUE,8,,cltopvkt35cp5mr64tm6o6bsq4@google.com,Sincronizado
-25/04/2026,26/04/2026,DIA,"GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO",GM (RM2-Md) BEZERRA,"📅  DIA: GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) TORRES, GM (RM2-Md) ARAÚJO
- • RETÉM: GM (RM2-Md) BEZERRA",,"alvaroartur79@gmail.com, matheush.alvesh@gmail.com",TRUE,4,,pn1u6b2kj80oe2g93qd03dtmtc@google.com,Sincronizado
-26/04/2026,27/04/2026,DIA,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MARINHO,"📅  DIA: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) MARINHO",,"matheush.alvesh@gmail.com, paulovictorsbezerra@gmail.com",TRUE,4,,2b9p6o6795van1ir136tc6f0co@google.com,Sincronizado
-27/04/2026,28/04/2026,DIA,"GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",GM (RM2-Md) TORRES,"📅  DIA: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) CASSUNDÉ, GM (RM2-Md) MACEDO
- • RETÉM: GM (RM2-Md) TORRES",,"danielmcassunde@gmail.com, macedovictor374@gmail.com",TRUE,8,,t90eu1ei0hjo4n03pp9qang0bc@google.com,Sincronizado
-28/04/2026,29/04/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",GM (RM2-Md) CASSUNDÉ,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) LEÃO
- • RETÉM: GM (RM2-Md) CASSUNDÉ",,"mmgomes61@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,mj6on9kdh8qjltgc7t7vimonls@google.com,Sincronizado
-29/04/2026,30/04/2026,DIA,"GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) RUFINO,"📅  DIA: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) GALUPPO, GM (RM2-Md) MIKHAEL
- • RETÉM: GM (RM2-Md) RUFINO",,"marciogaluppojr@gmail.com, mikhaellmorais@gmail.com",TRUE,8,,vc9r0g1a1vuig10dvonqkl3634@google.com,Sincronizado
-30/04/2026,01/05/2026,DIA,"GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES",1T (RM2-Md) GUIMARÃES,"📅  DIA: GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES",TRUE,"📅 SPA DIA
- • SVÇ: GM (RM2-Md) MARINHO, GM (RM2-Md) TORRES
- • RETÉM: 1T (RM2-Md) GUIMARÃES",,"mmgomes61@gmail.com, alvaroartur79@gmail.com",TRUE,8,,csj1acrvjbe3cafndd6jt9bcv0@google.com,Sincronizado
-01/04/2026,02/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) KILDARE,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
- • RETÉM: 1T (RM2-Md) KILDARE",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,uburm4ju62dhm0ei7r77f15l7o@google.com,Sincronizado
-02/04/2026,03/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES",1T (RM2-Md) KILDARE,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) DIÓGENES
- • RETÉM: 1T (RM2-Md) KILDARE",,"augusttobattistta@gmail.com, drlevilucenad@gmail.com",TRUE,8,,cq80ikc5tllaj9va4r5aflg34s@google.com,Sincronizado
-03/04/2026,04/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) PAES",1T (RM2-Md) FILHO,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) PAES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) PAES
- • RETÉM: 1T (RM2-Md) FILHO",,"kil.herminio@gmail.com, joao.blp@hotmail.com",TRUE,3,,7m0n1in5ed6rdi2mtcas4ahubc@google.com,Sincronizado
-04/04/2026,05/04/2026,NOITE,"GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",GM (RM2-Md) MACEDO,"📅  NOITE: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA",TRUE,"📅 SPA NOITE
- • SVÇ: GM (RM2-Md) ARAÚJO, GM (RM2-Md) BEZERRA
- • RETÉM: GM (RM2-Md) MACEDO",,paulovictorsbezerra@gmail.com,TRUE,3,,n4eqrtilajmm73ovniehlau88c@google.com,Sincronizado
-05/04/2026,06/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
- • RETÉM: GM (RM2-Md) MIKHAEL",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,3,,0f88vgpd99tqbo8ra3ku69hvas@google.com,Sincronizado
-06/04/2026,07/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
- • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,s8pcgo73n1qbnon3gcet1tvepk@google.com,Sincronizado
-07/04/2026,08/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) FILHO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
- • RETÉM: 1T (RM2-Md) FILHO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,t8pust39q9v8rofeockjujlhqc@google.com,Sincronizado
-08/04/2026,09/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) DIÓGENES,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
- • RETÉM: 1T (RM2-Md) DIÓGENES",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,ddnl8a0b9vo5rcg00ic96ueb9c@google.com,Sincronizado
-09/04/2026,10/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
- • RETÉM: GM (RM2-Md) MIKHAEL",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,0kik3g1ds0pq7jpvcsb2ligm20@google.com,Sincronizado
-10/04/2026,11/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO",GM (RM2-Md) MIKHAEL,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) LEÃO
- • RETÉM: GM (RM2-Md) MIKHAEL",,"kil.herminio@gmail.com, thiago.leaooliveira@ufpe.br",TRUE,8,,btjv3ccc7t7trrdhdjdftfd0g4@google.com,Sincronizado
-11/04/2026,12/04/2026,NOITE,"1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO",GM (RM2-Md) MACEDO,"📅  NOITE: 1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, GM (RM2-Md) GALUPPO
- • RETÉM: GM (RM2-Md) MACEDO",,"antunesluiseduardo2@gmail.com, marciogaluppojr@gmail.com",TRUE,4,,tnie2fge229njj6r16em13ubvk@google.com,Sincronizado
-12/04/2026,13/04/2026,NOITE,"1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) GUIMARÃES, 1T (RM2-Md) BARBOSA
- • RETÉM: GM (RM2-Md) LEÃO",,"jgbmedufpe@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,ri3an9phe910kc3e6i5vp66k3k@google.com,Sincronizado
-13/04/2026,14/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
- • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,ui1jlh72u2p2ekbc3gac2c8c9o@google.com,Sincronizado
-14/04/2026,15/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) CAMELO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
- • RETÉM: 1T (RM2-Md) CAMELO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,qvc2tlkjlgo7rh8389ddm5igac@google.com,Sincronizado
-15/04/2026,16/04/2026,NOITE,"1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",1T (RM2-Md) DIÓGENES,"📅  NOITE: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) VIANNA, 1T (RM2-Md) CAMELO
- • RETÉM: 1T (RM2-Md) DIÓGENES",,"gabrielviannaluna@gmail.com, pablocpf@gmail.com",TRUE,8,,k4th07i442il8vmneiu8so7t0k@google.com,Sincronizado
-16/04/2026,17/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) ARAÚJO,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
- • RETÉM: GM (RM2-Md) ARAÚJO",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,3188j2nu6fbku6evq9kpjg0a7g@google.com,Sincronizado
-17/04/2026,18/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",GM (RM2-Md) MACEDO,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
- • RETÉM: GM (RM2-Md) MACEDO",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,5o6thbn702llub1vkfrmorjib0@google.com,Sincronizado
-18/04/2026,19/04/2026,NOITE,"1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL",GM (RM2-Md) TORRES,"📅  NOITE: 1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, GM (RM2-Md) MIKHAEL
- • RETÉM: GM (RM2-Md) TORRES",,"antunesluiseduardo2@gmail.com, mikhaellmorais@gmail.com",TRUE,4,,cdao20ifv1s2tihu2db0ee1pok@google.com,Sincronizado
-19/04/2026,20/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
- • RETÉM: GM (RM2-Md) LEÃO",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,dfe7i4u1hnnibs4m9vidng86oo@google.com,Sincronizado
-20/04/2026,21/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) COSTA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
- • RETÉM: 1T (RM2-Md) COSTA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,ec6mve7sd6fpmo1a12741b9fho@google.com,Sincronizado
-21/04/2026,22/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) CAMELO,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
- • RETÉM: 1T (RM2-Md) CAMELO",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,4,,d07dr9acu5u0c4cmfgkk380mlk@google.com,Sincronizado
-22/04/2026,23/04/2026,NOITE,"1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO
- • RETÉM: 1T (RM2-Md) BARBOSA",,"gustavoalbuquerque998@gmail.com, pablocpf@gmail.com",TRUE,8,,crfpd7in7at6umqr254ehkpjbc@google.com,Sincronizado
-23/04/2026,24/04/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",1T (RM2-Md) ALBUQUERQUE,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
- • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,qs24lg221sk4p0v6u8oiv9oibs@google.com,Sincronizado
-24/04/2026,25/04/2026,NOITE,"1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ",GM (RM2-Md) BEZERRA,"📅  NOITE: 1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) KILDARE, GM (RM2-Md) CASSUNDÉ
- • RETÉM: GM (RM2-Md) BEZERRA",,"kil.herminio@gmail.com, danielmcassunde@gmail.com",TRUE,8,,h9i696gvc8ka89tbl7df6nn128@google.com,Sincronizado
-25/04/2026,26/04/2026,NOITE,"GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO",GM (RM2-Md) BEZERRA,"📅  NOITE: GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO",TRUE,"📅 SPA NOITE
- • SVÇ: GM (RM2-Md) RUFINO, GM (RM2-Md) MARINHO
- • RETÉM: GM (RM2-Md) BEZERRA",,"luishrapinheiro@gmail.com, mmgomes61@gmail.com",TRUE,4,,stoivl7ravtdkmenj6e0r90os8@google.com,Sincronizado
-26/04/2026,27/04/2026,NOITE,"1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",GM (RM2-Md) LEÃO,"📅  NOITE: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) DIÓGENES, 1T (RM2-Md) BARBOSA
- • RETÉM: GM (RM2-Md) LEÃO",,"drlevilucenad@gmail.com, lrbarbosasousa@gmail.com",TRUE,4,,df37jeehe0r47ukkk6urmdqb8o@google.com,Sincronizado
-27/04/2026,28/04/2026,NOITE,"1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) FILHO, 1T (RM2-Md) KILDARE
- • RETÉM: 1T (RM2-Md) BARBOSA",,"antunesluiseduardo2@gmail.com, kil.herminio@gmail.com",TRUE,8,,h9qjno8vukq05j5ddgehcg36b8@google.com,Sincronizado
-28/04/2026,29/04/2026,NOITE,"1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",1T (RM2-Md) ALBUQUERQUE,"📅  NOITE: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BARRETO, 1T (RM2-Md) COSTA
- • RETÉM: 1T (RM2-Md) ALBUQUERQUE",,"gustavobarretorr@gmail.com, dc08091998@gmail.com",TRUE,8,,j00qdl2ei5chp4nilrna9vbqj0@google.com,Sincronizado
-29/04/2026,30/04/2026,NOITE,"1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",1T (RM2-Md) BARBOSA,"📅  NOITE: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) ALBUQUERQUE, 1T (RM2-Md) CAMELO
- • RETÉM: 1T (RM2-Md) BARBOSA",,"gustavoalbuquerque998@gmail.com, pablocpf@gmail.com",TRUE,8,,0smqfsrmtv6docid9iu0qj8gig@google.com,Sincronizado
-30/04/2026,01/05/2026,NOITE,"1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",GM (RM2-Md) PAES,"📅  NOITE: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES",TRUE,"📅 SPA NOITE
- • SVÇ: 1T (RM2-Md) BATISTA, 1T (RM2-Md) GUIMARÃES
- • RETÉM: GM (RM2-Md) PAES",,"augusttobattistta@gmail.com, jgbmedufpe@gmail.com",TRUE,8,,ltn9vonmjjdpohuc0ueham2ae4@google.com,Sincronizado`;
+        // Passo 1: Inserindo a estrutura JSON diretamente
+        const mockJSON = {
+            "escala_mensal": [
+                { "dia_mes": 1, "dia_semana": "QUARTA-FEIRA", "spa_dia": ["GM GALUPPO", "GM MIKHAEL"], "retem_dia": "1T DIÓGENES", "spa_noite": ["1T VIANNA", "1T FILHO"], "retem_noite": "1T BARBOSA" },
+                { "dia_mes": 2, "dia_semana": "QUINTA-FEIRA", "spa_dia": ["1T ALBUQUERQUE", "GM TORRES"], "retem_dia": "1T BATISTA", "spa_noite": ["1T BATISTA", "1T GUIMARÃES"], "retem_noite": "1T ALBUQUERQUE" },
+                { "dia_mes": 3, "dia_semana": "SEXTA-FEIRA", "spa_dia": ["GM PAES", "GM RUFINO"], "retem_dia": "1T ALBUQUERQUE", "spa_noite": ["GM PAES", "GM RUFINO"], "retem_noite": "1T ALBUQUERQUE" },
+                { "dia_mes": 4, "dia_semana": "SÁBADO", "spa_dia": ["GM RUFINO", "GM GALUPPO"], "retem_dia": "GM PAES", "spa_noite": ["GM MARINHO", "GM TORRES"], "retem_noite": "GM PAES" },
+                { "dia_mes": 5, "dia_semana": "DOMINGO", "spa_dia": ["GM ARAÚJO", "GM BEZERRA"], "retem_dia": "GM PAES", "spa_noite": ["1T DIÓGENES", "GM LEÃO"], "retem_noite": "GM ARAÚJO" },
+                { "dia_mes": 6, "dia_semana": "SEGUNDA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "1T KILDARE", "spa_noite": ["1T FILHO", "1T KILDARE"], "retem_noite": "1T COSTA" },
+                { "dia_mes": 7, "dia_semana": "TERÇA-FEIRA", "spa_dia": ["GM ARAÚJO", "GM LEÃO"], "retem_dia": "1T BARRETO", "spa_noite": ["1T BARRETO", "1T COSTA"], "retem_noite": "1T FILHO" },
+                { "dia_mes": 8, "dia_semana": "QUARTA-FEIRA", "spa_dia": ["GM GALUPPO", "GM MIKHAEL"], "retem_dia": "1T DIÓGENES", "spa_noite": ["1T VIANNA", "1T CAMELO"], "retem_noite": "1T BARBOSA" },
+                { "dia_mes": 9, "dia_semana": "QUINTA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "1T BATISTA", "spa_noite": ["1T BATISTA", "1T GUIMARÃES"], "retem_noite": "1T CAMELO" },
+                { "dia_mes": 10, "dia_semana": "SEXTA-FEIRA", "spa_dia": ["GM PAES", "GM RUFINO"], "retem_dia": "1T KILDARE", "spa_noite": ["1T FILHO", "1T KILDARE"], "retem_noite": "GM RUFINO" },
+                { "dia_mes": 11, "dia_semana": "SÁBADO", "spa_dia": ["GM TORRES", "GM BEZERRA"], "retem_dia": "1T KILDARE", "spa_noite": ["GM PAES", "1T COSTA"], "retem_noite": "GM TORRES" },
+                { "dia_mes": 12, "dia_semana": "DOMINGO", "spa_dia": ["GM ARAÚJO", "GM BEZERRA"], "retem_dia": "GM MACEDO", "spa_noite": ["1T DIÓGENES", "1T BARBOSA"], "retem_noite": "GM LEÃO" },
+                { "dia_mes": 13, "dia_semana": "SEGUNDA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "1T VIANNA", "spa_noite": ["1T FILHO", "1T BATISTA"], "retem_noite": "1T COSTA" },
+                { "dia_mes": 14, "dia_semana": "TERÇA-FEIRA", "spa_dia": ["GM ARAÚJO", "GM LEÃO"], "retem_dia": "1T BARRETO", "spa_noite": ["1T BARRETO", "1T COSTA"], "retem_noite": "1T FILHO" },
+                { "dia_mes": 15, "dia_semana": "QUARTA-FEIRA", "spa_dia": ["GM GALUPPO", "GM MIKHAEL"], "retem_dia": "1T DIÓGENES", "spa_noite": ["1T VIANNA", "1T CAMELO"], "retem_noite": "1T BARBOSA" },
+                { "dia_mes": 16, "dia_semana": "QUINTA-FEIRA", "spa_dia": ["GM MARINHO", "GM TORRES"], "retem_dia": "1T GUIMARÃES", "spa_noite": ["1T FILHO", "1T GUIMARÃES"], "retem_noite": "1T CAMELO" },
+                { "dia_mes": 17, "dia_semana": "SEXTA-FEIRA", "spa_dia": ["GM PAES", "GM RUFINO"], "retem_dia": "GM CASSUNDÉ", "spa_noite": ["1T FILHO", "GM MARINHO"], "retem_noite": "GM RUFINO" },
+                { "dia_mes": 18, "dia_semana": "SÁBADO", "spa_dia": ["GM BEZERRA", "GM GALUPPO"], "retem_dia": "GM RUFINO", "spa_noite": ["GM MARINHO", "1T BATISTA"], "retem_noite": "GM CASSUNDÉ" },
+                { "dia_mes": 19, "dia_semana": "DOMINGO", "spa_dia": ["GM MIKHAEL", "GM BEZERRA"], "retem_dia": "GM MACEDO", "spa_noite": ["1T DIÓGENES", "1T BARBOSA"], "retem_noite": "GM MACEDO" },
+                { "dia_mes": 20, "dia_semana": "SEGUNDA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "1T VIANNA", "spa_noite": ["1T FILHO", "1T BATISTA"], "retem_noite": "1T COSTA" },
+                { "dia_mes": 21, "dia_semana": "TERÇA-FEIRA", "spa_dia": ["GM ARAÚJO", "GM LEÃO"], "retem_dia": "GM MIKHAEL", "spa_noite": ["1T BARRETO", "1T COSTA"], "retem_noite": "GM BEZERRA" },
+                { "dia_mes": 22, "dia_semana": "QUARTA-FEIRA", "spa_dia": ["GM GALUPPO", "GM MIKHAEL"], "retem_dia": "GM BEZERRA", "spa_noite": ["1T VIANNA", "1T CAMELO"], "retem_noite": "GM CASSUNDÉ" },
+                { "dia_mes": 23, "dia_semana": "QUINTA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "1T GUIMARÃES", "spa_noite": ["1T DIÓGENES", "1T GUIMARÃES"], "retem_noite": "1T CAMELO" },
+                { "dia_mes": 24, "dia_semana": "SEXTA-FEIRA", "spa_dia": ["GM PAES", "GM RUFINO"], "retem_dia": "GM TORRES", "spa_noite": ["1T FILHO", "1T CAMELO"], "retem_noite": "GM MARINHO" },
+                { "dia_mes": 25, "dia_semana": "SÁBADO", "spa_dia": ["GM TORRES", "GM MARINHO"], "retem_dia": "GM BEZERRA", "spa_noite": ["GM MARINHO", "GM LEÃO"], "retem_noite": "GM GALUPPO" },
+                { "dia_mes": 26, "dia_semana": "DOMINGO", "spa_dia": ["GM ARAÚJO", "GM BEZERRA"], "retem_dia": "GM GALUPPO", "spa_noite": ["1T DIÓGENES", "1T BARBOSA"], "retem_noite": "GM LEÃO" },
+                { "dia_mes": 27, "dia_semana": "SEGUNDA-FEIRA", "spa_dia": ["GM CASSUNDÉ", "GM MACEDO"], "retem_dia": "GM MIKHAEL", "spa_noite": ["1T FILHO", "1T BATISTA"], "retem_noite": "GM MIKHAEL" },
+                { "dia_mes": 28, "dia_semana": "TERÇA-FEIRA", "spa_dia": ["GM MIKHAEL", "GM LEÃO"], "retem_dia": "GM TORRES", "spa_noite": ["1T VIANNA", "1T COSTA"], "retem_noite": "GM ARAÚJO" },
+                { "dia_mes": 29, "dia_semana": "QUARTA-FEIRA", "spa_dia": ["GM GALUPPO", "GM MIKHAEL"], "retem_dia": "GM ARAÚJO", "spa_noite": ["1T VIANNA", "1T CAMELO"], "retem_noite": "GM MARINHO" },
+                { "dia_mes": 30, "dia_semana": "QUINTA-FEIRA", "spa_dia": ["1T ALBUQUERQUE", "GM TORRES"], "retem_dia": "1T GUIMARÃES", "spa_noite": ["1T BARBOSA", "1T GUIMARÃES"], "retem_noite": "GM LEÃO" },
+                { "dia_mes": 31, "dia_semana": "SEXTA-FEIRA", "spa_dia": ["GM PAES", "GM RUFINO"], "retem_dia": "GM GALUPPO", "spa_noite": ["1T FILHO", "1T KILDARE"], "retem_noite": "GM MARINHO" }
+            ]
+        };
 
         // Configuração Padrão do Chart.js
         Chart.defaults.font.family = "'Carlito', sans-serif";
@@ -378,120 +225,70 @@
         Chart.defaults.plugins.tooltip.padding = 10;
         Chart.defaults.plugins.tooltip.cornerRadius = 8;
 
-        // Variáveis globais para os gráficos
         let chartWeeklyHoursInstance = null;
         let chartTopNightInstance = null;
         let chartWeekendInstance = null;
 
-        function processData(csvText) {
-            // PapaParse lidando com CSV/TSV
-            const parsed = Papa.parse(csvText.trim(), {
-                header: true,
-                skipEmptyLines: true,
-                dynamicTyping: true
-            });
-
-            if (parsed.errors.length > 0 && parsed.data.length === 0) {
-                alert("Erro ao ler o arquivo. Certifique-se de que é um formato válido com cabeçalhos corretos.");
-                return null;
-            }
-
-            const dataRows = parsed.data;
-            let minDate = new Date(8640000000000000);
-            let maxDate = new Date(-8640000000000000);
+        // Passo 2: Nova lógica para ler a estrutura JSON
+        function processData(jsonData) {
             const doctorStats = {};
-            const uniqueMonths = new Set();
             let totalShiftsProcessed = 0;
             let globalDay = 0;
             let globalNight = 0;
 
-            dataRows.forEach(row => {
-                // Suporte flexível para os nomes das colunas
-                const svcCol = row['SVC'] || row['svc'] || row['Svc'];
-                const medicoCol = row['Medico'] || row['Médico'] || row['medico'];
-                const inicioCol = row['Início'] || row['Inicio'] || row['inicio'] || row['Data'];
-
-                if (!svcCol || !medicoCol) return;
-
-                const svc = String(svcCol).toUpperCase().trim();
-                
-                // Filtro 1: Apenas DIA ou NOITE
-                if (svc !== 'DIA' && svc !== 'NOITE') return;
-
-                // Processamento de Datas
-                let isWeekend = false;
-                if (inicioCol) {
-                    const dateStr = String(inicioCol).split(' ')[0]; 
-                    const dateParts = dateStr.split('/');
-                    if (dateParts.length >= 3) {
-                        const d = new Date(dateParts[2], parseInt(dateParts[1]) - 1, dateParts[0]);
-                        if (!isNaN(d.getTime())) {
-                            if (d < minDate) minDate = d;
-                            if (d > maxDate) maxDate = d;
-                            uniqueMonths.add(`${dateParts[2]}-${dateParts[1]}`);
-                            isWeekend = (d.getDay() === 0 || d.getDay() === 6); // 0 = Domingo, 6 = Sábado
-                        }
-                    }
-                }
-
-                // Processamento dos Médicos
-                const cleanStr = String(medicoCol).replace(/^"|"$/g, '');
-                const medicosList = cleanStr.split(',');
-
-                medicosList.forEach(med => {
-                    const m = med.trim();
-                    if (!m) return;
-                    
-                    // Extrair Nome de Guerra (após o parênteses do posto/graduação)
-                    const parts = m.split(')');
-                    let warName = parts.length > 1 ? parts.pop().trim() : m;
-                    
-                    if (!warName) warName = "DESCONHECIDO";
-
-                    if (!doctorStats[warName]) {
-                        doctorStats[warName] = { total: 0, day: 0, night: 0, weekend: 0 };
-                    }
-                    
-                    // Contagem individual
-                    doctorStats[warName].total += 1;
-                    if (isWeekend) doctorStats[warName].weekend += 1;
-                    totalShiftsProcessed++;
-
-                    // Contagem Global e Individual de Tipo
-                    if (svc === 'DIA') {
-                        doctorStats[warName].day += 1;
-                        globalDay++;
-                    } else if (svc === 'NOITE') {
-                        doctorStats[warName].night += 1;
-                        globalNight++;
-                    }
-                });
-            });
-
-            // Cálculos de tempo para médias
-            let numMonths = uniqueMonths.size || 1;
+            const dias = jsonData.escala_mensal;
+            const totalDays = dias.length; // Conta os dias totais na escala
             
-            let daysDiff = 30; // padrão caso falhe
-            let totalDays = 0;
-            let minDateStr = "--/--/----";
-            let maxDateStr = "--/--/----";
-
-            if (minDate <= maxDate) {
-                daysDiff = (maxDate.getTime() - minDate.getTime()) / (1000 * 60 * 60 * 24);
-                totalDays = Math.round(daysDiff) + 1; // +1 para ser intervalo inclusivo
-                
-                const pad = num => String(num).padStart(2, '0');
-                minDateStr = `${pad(minDate.getDate())}/${pad(minDate.getMonth() + 1)}/${minDate.getFullYear()}`;
-                maxDateStr = `${pad(maxDate.getDate())}/${pad(maxDate.getMonth() + 1)}/${maxDate.getFullYear()}`;
-                
-                if (daysDiff === 0) daysDiff = 1;
-            }
-            let numWeeks = daysDiff / 7;
+            // Cálculos básicos de tempo (Considerando Abril de 2026 pelo contexto do seu código anterior)
+            const numMonths = 1;
+            let numWeeks = totalDays / 7;
             if (numWeeks < 1) numWeeks = 1;
 
-            const roundedWeeks = numWeeks.toFixed(1);
+            // Função interna para registrar as ocorrências de um plantão
+            function countShift(medico, tipoTurno, isWeekend) {
+                // Remove prefixos como "GM " ou "1T " para deixar o nome limpo no gráfico
+                let name = medico.replace(/^(GM|1T)\s+/, '').trim();
+                if (!name) return;
 
-            // Gerar Array final
+                if (!doctorStats[name]) {
+                    doctorStats[name] = { total: 0, day: 0, night: 0, weekend: 0 };
+                }
+                
+                // Incrementa estatísticas individuais
+                doctorStats[name].total += 1;
+                if (isWeekend) doctorStats[name].weekend += 1;
+                
+                // Incrementa estatísticas globais
+                totalShiftsProcessed++;
+                if (tipoTurno === 'DIA') {
+                    doctorStats[name].day += 1;
+                    globalDay++;
+                } else {
+                    doctorStats[name].night += 1;
+                    globalNight++;
+                }
+            }
+
+            // Loop percorrendo cada dia do JSON
+            dias.forEach(dia => {
+                const isWeekend = (dia.dia_semana === "SÁBADO" || dia.dia_semana === "DOMINGO");
+
+                // Processa a lista de médicos do SPA de DIA
+                if (Array.isArray(dia.spa_dia)) {
+                    dia.spa_dia.forEach(medico => {
+                        countShift(medico, 'DIA', isWeekend);
+                    });
+                }
+
+                // Processa a lista de médicos do SPA de NOITE
+                if (Array.isArray(dia.spa_noite)) {
+                    dia.spa_noite.forEach(medico => {
+                        countShift(medico, 'NOITE', isWeekend);
+                    });
+                }
+            });
+
+            // Gerar Array final ordenado
             const doctorArray = Object.keys(doctorStats).map(name => {
                 const stats = doctorStats[name];
                 return {
@@ -501,17 +298,21 @@
                     night: stats.night,
                     weekend: stats.weekend,
                     monthlyAvg: parseFloat((stats.total / numMonths).toFixed(1)),
-                    weeklyHours: parseFloat(((stats.total / numWeeks) * 12).toFixed(1)) // Assume 12h por plantão
+                    weeklyHours: parseFloat(((stats.total / numWeeks) * 12).toFixed(1)) // Assume 12h por turno
                 };
-            }).sort((a, b) => b.total - a.total); // Ordena pelo total de plantões
+            }).sort((a, b) => b.total - a.total); // Ordena quem trabalhou mais
+
+            // Formatando as datas baseadas no primeiro e último dia do JSON
+            const dataInicial = `01/07/2026`;
+            const dataFinal = `${totalDays.toString().padStart(2, '0')}/07/2026`;
 
             return {
                 doctors: doctorArray,
                 summary: {
                     totalShifts: totalShiftsProcessed,
                     activeDoctors: doctorArray.length,
-                    minDateStr: minDateStr,
-                    maxDateStr: maxDateStr,
+                    minDateStr: dataInicial,
+                    maxDateStr: dataFinal,
                     totalDays: totalDays,
                     globalDay: globalDay,
                     globalNight: globalNight
@@ -520,10 +321,7 @@
         }
 
         function renderDashboard(data) {
-            if (!data || data.doctors.length === 0) {
-                alert("Nenhum dado válido de plantão (DIA/NOITE) encontrado. Verifique a coluna 'SVC' e 'Medico' no CSV.");
-                return;
-            }
+            if (!data || data.doctors.length === 0) return;
 
             // Animação Simples para Contadores numéricos
             animateValue('kpiTotalShifts', 0, data.summary.totalShifts, 1000);
@@ -548,10 +346,7 @@
             document.getElementById('kpiAvgWeeklyHours').innerText = `${medianWeeklyHours}h`;
 
             // Cores mais vibrantes e profissionais
-            const colorPrimary = '#3b82f6'; // blue-500
             const colorSecondary = '#6366f1'; // indigo-500
-
-            // Definindo cores dinâmicas para as barras (vermelho escuro se > mediana)
             const medianNum = parseFloat(medianWeeklyHours);
             const barColors = weeklyData.map(val => val > medianNum ? '#991b1b' : colorSecondary);
             const hoverBarColors = weeklyData.map(val => val > medianNum ? '#7f1d1d' : '#4f46e5');
@@ -567,7 +362,7 @@
                             type: 'line',
                             label: 'Mediana',
                             data: Array(labels.length).fill(medianNum),
-                            borderColor: '#ef4444', // linha vermelha pontilhada
+                            borderColor: '#ef4444', 
                             borderWidth: 2,
                             borderDash: [5, 5],
                             pointRadius: 0,
@@ -605,7 +400,7 @@
                     datasets: [{
                         label: 'Plantões à Noite',
                         data: topNightDocs.map(d => d.night),
-                        backgroundColor: '#1e293b', // slate-800
+                        backgroundColor: '#1e293b', 
                         borderRadius: 6,
                         barPercentage: 0.6
                     }]
@@ -613,7 +408,7 @@
                 options: { 
                     responsive: true, 
                     maintainAspectRatio: false, 
-                    indexAxis: 'y', // Gráfico horizontal
+                    indexAxis: 'y', 
                     plugins: { legend: { display: false } },
                     scales: {
                         x: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { stepSize: 1 } },
@@ -632,7 +427,7 @@
                     datasets: [{
                         label: 'Plantões aos Finais de Semana',
                         data: topWeekendDocs.map(d => d.weekend),
-                        backgroundColor: '#ef4444', // red-500
+                        backgroundColor: '#ef4444', 
                         borderRadius: 6,
                         barPercentage: 0.6
                     }]
@@ -640,7 +435,7 @@
                 options: { 
                     responsive: true, 
                     maintainAspectRatio: false, 
-                    indexAxis: 'y', // Gráfico horizontal fica melhor para nomes
+                    indexAxis: 'y', 
                     plugins: { legend: { display: false } },
                     scales: {
                         x: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { stepSize: 1 } },
@@ -656,7 +451,6 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50 transition-colors group";
                 
-                // Animação de entrada escalonada para as linhas da tabela
                 tr.style.opacity = '0';
                 tr.style.animation = `fadeIn 0.3s ease-out ${index * 0.05}s forwards`;
 
@@ -698,7 +492,6 @@
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                // Função de easing (easeOutQuart)
                 const easeProgress = 1 - Math.pow(1 - progress, 4); 
                 obj.innerText = Math.floor(easeProgress * (end - start) + start);
                 if (progress < 1) {
@@ -710,9 +503,9 @@
             window.requestAnimationFrame(step);
         }
 
-        // Inicializa automaticamente com a carga fixada na variável mockCSV ao invés de pedir upload
+        // Inicializa automaticamente com a carga fixada na variável JSON
         document.addEventListener('DOMContentLoaded', () => {
-            const initialData = processData(mockCSV);
+            const initialData = processData(mockJSON);
             if (initialData) renderDashboard(initialData);
         });
 
